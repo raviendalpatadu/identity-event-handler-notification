@@ -321,6 +321,12 @@ public class PushNotificationHandler extends DefaultNotificationHandler {
                 .setIpAddress((String) eventProperties.get(IP_ADDRESS))
                 .setDeviceOS((String) eventProperties.get(REQUEST_DEVICE_OS))
                 .setBrowser((String) eventProperties.get(REQUEST_DEVICE_BROWSER))
+                .setPushDeviceName((String) eventProperties.get(
+                        NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_NAME.getPlaceholder()))
+                .setPushDeviceModel((String) eventProperties.get(
+                        NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_MODEL.getPlaceholder()))
+                .setRegistrationTime((String) eventProperties.get(
+                        NotificationConstants.PushNotificationPlaceholder.REGISTRATION_TIME.getPlaceholder()))
                 .build();
     }
 
