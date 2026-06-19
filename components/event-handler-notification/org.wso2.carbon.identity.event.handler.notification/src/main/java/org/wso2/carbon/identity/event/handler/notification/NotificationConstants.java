@@ -202,7 +202,7 @@ public class NotificationConstants {
         TENANT_DOMAIN("tenant-domain"),
         PUSH_DEVICE_NAME("push-device-name"),
         PUSH_DEVICE_MODEL("push-device-model"),
-        REGISTRATION_TIME("registration-time"),;
+        REGISTRATION_TIME("registration-time");
 
         private String placeholder;
 
