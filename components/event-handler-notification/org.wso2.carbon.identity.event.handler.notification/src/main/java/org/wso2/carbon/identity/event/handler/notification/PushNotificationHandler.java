@@ -223,6 +223,22 @@ public class PushNotificationHandler extends DefaultNotificationHandler {
                 return false;
             }
         }
+
+        // checks if the required properties for device registration scenario are present when the scenario is device
+        // registration.
+        String scenario = (String) eventProperties.get(NOTIFICATION_SCENARIO);
+        if (NotificationConstants.PushNotification.PUSH_DEVICE_REGISTRATION_SCENARIO.equals(scenario)) {
+            String[] deviceRegistrationRequiredProperties = {
+                NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_NAME.getPlaceholder(),
+                NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_MODEL.getPlaceholder(),
+                NotificationConstants.PushNotificationPlaceholder.REGISTRATION_TIME.getPlaceholder()
+            };
+            for (String property : deviceRegistrationRequiredProperties) {
+                if (eventProperties.get(property) == null) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
