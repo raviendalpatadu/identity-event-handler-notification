@@ -223,6 +223,20 @@ public class PushNotificationHandler extends DefaultNotificationHandler {
                 return false;
             }
         }
+
+        String scenario = (String) eventProperties.get(NOTIFICATION_SCENARIO);
+        if (NotificationConstants.PushNotification.PUSH_DEVICE_REGISTRATION_SCENARIO.equals(scenario)) {
+            String[] deviceRegistrationRequiredProperties = {
+                NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_NAME.getPlaceholder(),
+                NotificationConstants.PushNotificationPlaceholder.PUSH_DEVICE_MODEL.getPlaceholder(),
+                NotificationConstants.PushNotificationPlaceholder.REGISTRATION_TIME.getPlaceholder()
+            };
+            for (String property : deviceRegistrationRequiredProperties) {
+                if (eventProperties.get(property) == null) {
+                    return false;
+                    }
+            }
+        }
         return true;
     }
 
