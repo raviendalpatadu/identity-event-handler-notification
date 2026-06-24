@@ -386,7 +386,7 @@ public class PushNotificationHandler extends DefaultNotificationHandler {
             // If a matching key is found, retrieve the corresponding value from event properties
             if (matchedKey != null) {
                 String value = (String) eventProperties.get(matchedKey.getPlaceholder());
-                placeholderValues.put(placeHolder, value != null ? value : StringUtils.EMPTY);
+                placeholderValues.put(placeHolder, value);
             }
         }
 
